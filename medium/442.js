@@ -11,5 +11,6 @@ var findDuplicates = function(nums) {
         }
         i+=1;
     }
-    nums.slice(0, unique)
+    nums.splice(unique)
+    return nums
 };
