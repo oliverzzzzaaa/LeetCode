@@ -10,16 +10,16 @@ var maxLevelSum = function(root) {
             if (currSum > maxSum) {
                 maxSum = currSum;
                 maxLevel = currLevel;
-                currSum = 0;
             }
+            currSum = 0;
             currLevel+=1;
             queue = levelqueue;
             levelqueue = [];
         } else {
-            let root = queue.shift();
-            currSum += root.val
-            if (root.right) {levelqueue.push(root.right)}
-            if (root.left) {levelqueue.push(root.left)}
+            let node = queue.shift();
+            currSum += node.val
+            if (node.right !== null) {levelqueue.push(node.right)}
+            if (node.left !== null) {levelqueue.push(node.left)}
         }
     }
     return maxLevel;
