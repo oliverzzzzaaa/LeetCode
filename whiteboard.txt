@@ -1,0 +1,13 @@
+1. Clarify the question, create at least 3 test cases, different sizes
+
+2. Test case input/output, formulate approach verbally
+
+3. Pseudo Code (WRITE THE STEPS IN PLAIN ENGLISH, break down into as many small steps)
+
+4. Code
+
+5. Walk through a test case
+
+6. Discuss Space and Time
+
+7. Optimize

@@ -1,0 +1,28 @@
+nside Job Guides
+https://www.pathrise.com/guides/how-to-get-a-job-at-company 
+Job Boards:
+https://jumpstart.me/
+workatastartup.com
+JS Trivia:
+https://www.toptal.com/javascript/interview-questions
+http://thatjsdude.com/interview/js2.html
+http://thatjsdude.com/interview/dom.html
+System Design & Web Architecture:
+https://github.com/donnemartin/system-design-primer
+https://www.youtube.com/watch?v=UzLMhqg3_Wc
+https://www.educative.io/courses/grokking-the-system-design-interview/
+http://blog.self-loop.com/architecture_lecture/
+You can make flashcards for the trivia here: https://apps.ankiweb.net/
+Algorithms/DS:
+https://github.com/trekhleb/javascript-algorithms
+algoexpert.io
+leetCode.com
+Frontend Practice:
+https://javascript30.com/
+You can also go back and redo the jQuery lite and JS TicTacToe projects from the curriculum
+Backend:
+https://www.sitepoint.com/sql-vs-nosql-differences/
+https://sqlzoo.net/
+https://github.com/goldbergyoni/nodebestpractices/blob/master/README.md#5-going-to-production-practices
+https://itnext.io/the-absolute-easiest-way-to-debug-node-js-with-vscode-2e02ef5b1bad
+You should also go back and redo the ActiveRecord lite and Rails lite projects from the curriculum
