@@ -1,18 +1,19 @@
 var minCostClimbingStairs = function(cost) {
     let h = {};
-    return dp(cost, h)
+    let one = dp(cost.slice(1), h)
+    let two = dp(cost.slice(2), h)
+    return Math.min(one, two)
+
 };
 
 function dp(cost, h) {
-    console.log(cost)
     if (cost.length < 1) {return 0}
     if (h[cost.length]) {return h[cost.length]}
-    let onestep = cost[0] + dp(cost.slice(1), h)
-    let twostep = cost[1] + dp(cost.slice(2), h)
-    let ideal = Math.min(onestep, twostep)
-    h[cost.length] = ideal
-    return ideal
+    let one = dp(cost.slice(1), h)
+    let two = dp(cost.slice(2), h)
+    let ideal = Math.min(one, two)
+    h[cost.length] = cost[0] + ideal;
+    return cost[0] + ideal;
 }
-
-// console.log(minCostClimbingStairs([10,15,20]))
-console.log(minCostClimbingStairs([0,0,0,0]))
+console.log(minCostClimbingStairs([10,15,20]))
+// console.log(minCostClimbingStairs([0,0,0,0]))
