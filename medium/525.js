@@ -8,7 +8,7 @@ var findMaxLength = function(nums) {
         } else {
             zeroes++
         }
-        if (ones == zeroes) {idx = i+1}
+        if (ones === zeroes) {idx = i+1}
     }
     return idx  
 };
