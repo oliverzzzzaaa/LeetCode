@@ -1,0 +1,63 @@
+Youngest Common Ancestor
+
+You're given three inputs, all of which are instances of a class that have an "ancestor" property pointing to their youngest ancestor. 
+The first input is the top ancestor in an ancestral tree (i.e., the only instance that has no ancestor), 
+and the other two inputs are descendants in the ancestral tree. Write a function that returns the youngest common ancestor 
+to the two descendants.
+
+Sample input: Node A, Node E, Node I (from the ancestral tree below)
+Sample input: Node A, Node E, Node I (from the ancestral tree below)
+Sample input: Node A, Node E, Node I (from the ancestral tree below)
+
+
+             A
+          /     \            
+         B       C
+       /   \    /  \
+      D     E  F    G
+     / \   / \        
+    H   I     J
+  /  \
+ K    L
+
+Sample output: Node B 
+
+function youngestAncestor
+
+arguments: head, child1, child2, checked(hash), prevCall(hash), count
+
+Base Case: if both child has the same ancestor value, return ancestor
+
+save child into checked hash
+recursive call with the same head, different child for one, with incremented count
+save into prevCall: key: child1 ancestor : child2 ancestor
+
+Case: youngestAncestor(A, L, J)
+
+
+// I used a hash to store ancestor
+
+function youngestAncestor(head, child1, child2) {
+    
+    // initialize has to store ancestors
+    let oneAncestors = {};
+    
+    let node = child1;
+    
+    // iterate through child 1 and store all ancestors
+    while (node) {
+        oneAncestors[node.val] = node;
+        node = node.ancestor;
+    }
+
+    let child2ancestor = child2;
+    
+    
+    while (child2ancestor) {
+        if (oneAncestors[child2ancestor.val]) {
+            return oneAncestors[child2ancestor.val];
+        }
+        child2ancestor = child2ancestor.ancestor;
+    }
+    return head;
+}
