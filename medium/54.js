@@ -1,12 +1,17 @@
 var spiralOrder = function(matrix) {
-    let xtimes = matrix[0].length;
-    let ytimes = matrix.length;
-    let directions = [[1,0], [0,1], [-1,0], [0,-1]];
-    let directionidx = 0;
-    let spiral = [];
-    let x = 0;
-    let y = 0;
-    while (xtimes > 0 && ytimes > 0) {
-        
+    if (matrix.length < 1) return [];
+    const res = [];
+    const dirs = [[0, 1], [1, 0], [0, -1], [-1, 0]];
+    const range = [matrix[0].length, matrix.length - 1];
+    let dir = 0, row = 0, col = -1;
+    while (range[dir % 2] > 0) {
+        for (let i = 0; i < range[dir % 2]; i++) {
+            row += dirs[dir][0];
+            col += dirs[dir][1];
+            res.push(matrix[row][ccol]);
+        }
+        range[dir % 2]--;
+        dir = (dir + 1) % 4;
     }
+    return res;
 };
