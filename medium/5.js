@@ -27,21 +27,49 @@ var longestPalindrome = function(s) {
     return s.slice(maxlen[0], maxlen[1]+1)
 };
 
-function dp(s, start, end, h) {
-    for (let i = 0; i < s.length; i++) {
+// const longestPalindrome = function(s) {
+//     if (s.length < 2) return s;
 
-    }
-}
+//     const lookup = [];
+//     for(let i = 0; i < s.length; i++){
+//         lookup[i] = new Array(s.length)
+//     };
+    
+//     let maxLength = 1;
+//     const ans = [0, 0]
+//     for (let i = 0; i < s.length; i++) {
+//         lookup[i][i] = true;
+//     };
 
-function isPalindrome(string) {
-    let j = string.length-1
-    for (let i = 0; i < string.length; i++) {
-        if (string[i] !== string[j]) {return false}
-        if (i >= j) {return true}
-        j--;
-    }
-    return true;
-}
+//     // basecase2
+//     for (let i = 0; i < s.length - 1; i++) {
+//         if (s[i] === s[i+1]){
+//             lookup[i][i+1] = true;
+//             if(maxLength < 2){
+//                 maxLength = 2;
+//                 ans[0] = i;
+//                 ans[1] = i + 1;
+//             };
+//         };
+//     }; 
+
+//     // str that have 3 or more character
+//     for(let i = 0; i < s.length - 2; i++){
+//         for(let j = 2;  i + j < s.length; j++){ 
+//             if(lookup[i+1][i + j - 1] === true && s[i] === s[i + j]){
+//                 lookup[i][i + j] = true;
+//                 if(j + 1 > maxLength){
+//                     maxLength = j + 1;
+//                     ans[0] = i;
+//                     ans[1] = i + j;
+//                 }
+//             }else{
+//                 lookup[i][i+j] = false;
+//             };
+//         };
+//     };
+//     return s.slice(ans[0], ans[1]+1);
+// };
 
 // console.log(isPalindrome("ana"))
-console.log(longestPalindrome("ccc"))
+console.log(longestPalindrome(""))
