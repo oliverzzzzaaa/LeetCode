@@ -28,5 +28,9 @@ function dp(days, costs, h) {
     return 0;
 }
 
+var mincostTickets = function(days, costs) {
+    
+}
+
 console.log(mincostTickets([1,4,6,7,8,20], [2,7,15]))
 console.log(mincostTickets([1,4,6,7,8,365], [2,7,15]))
