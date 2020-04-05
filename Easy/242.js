@@ -1,19 +1,20 @@
 var isAnagram = function(s, t) {
     let h = {};
-    s.forEach(char => {
+    for (let i = 0; i < s.length; i++) {
+        let char = s[i];
         if (!h[char]) {
             h[char] = 1
         } else {
             h[char]++;
         }
-
-    })
-    t.forEach(char => {
+    }
+    for (let j = 0; j < t.length; j++) {
+        let char = t[j];
         if (!h[char]) {
             return false;
         } else {
             h[char]--;
         }
-    })
-    Object.values(h).every(val => val === 0)
+    }
+    return Object.values(h).every(val => val === 0)
 };

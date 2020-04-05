@@ -1,13 +1,14 @@
 var containsDuplicate = function(nums) {
     let set = new Set();
+    let dup = false;
     nums.forEach(num => {
         if (set.has(num)) {
-            return true;
+            dup = true;
         } else {
             set.add(num)
         }
     })
-    return false
+    return dup
 };
 
 
