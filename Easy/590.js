@@ -14,6 +14,7 @@ var postorder = function(root) {
 };
 
 var postorder = function(root) {
+    if (!root) {return []}
     let stack = [root];
     let ans = [];
     let checked = new Set();
