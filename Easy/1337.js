@@ -25,4 +25,5 @@ var kWeakestRows = function(mat, k) {
         }
         f++;
     }
+    return ans
 };
