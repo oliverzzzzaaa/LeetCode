@@ -8,10 +8,14 @@ var findLucky = function(arr) {
         }
     })
     let lucky = -1;
+    console.log(h)
     Object.keys(h).forEach(key => {
-        if (key === h[key]) {
-            lucky = Math.max(lucky, key)
+        if (key === `${h[key]}`) {
+            lucky = Math.max(lucky, h[key])
         }
     })
     return lucky
 };
+
+console.log(findLucky(
+    [2,2,3,4]))
