@@ -20,11 +20,14 @@ function freqKeywords(keywords, reviews, k) {
     for (let i = 0; i < k; i++) {
         ans.push(pairs[i][0])
     }
+    console.log(pairs)
     return ans
 }
 
-console.log(freqKeywords(["anacell", "cetracular", "betacellular"], [
-    "Anacell provides the best services in the city",
-    "betacellular has awesome services",
-    "Best services provided by anacell, everyone should use anacell",
+console.log(freqKeywords(["anacell", "betacellular", "cetracular", "deltacellular", "eurocell"], [
+    "I love anacell Best services; Best services provided by anacell",
+    "betacellular has great services",
+    "deltacellular provides much better services than betacellular",
+    "cetracular is worse than anacell",
+    "Betacellular is better than deltacellular.",
   ], 2))
