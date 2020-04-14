@@ -1,26 +1,31 @@
 var minPathSum = function(grid) {
-    let h = {};
-    return dp(grid, [0,0], h)
+    let lookup = [];
+    for (let i = 0; i < grid.length; i++) {
+        lookup.push(new Array(grid[i].length))
+    }
+    for (let i = lookup.length-1; i >= 0; i--) {
+        for (let j = lookup[i].length-1; j >= 0; j--) {
+            let localmin = Number.MAX_VALUE;
+            if (j+1 < lookup[i].length) {
+                localmin = Math.min(localmin, lookup[i][j+1])
+            }
+            if (i+1 < lookup.length) {
+                localmin = Math.min(localmin, lookup[i+1][j])
+            }
+            if (j+1 >= lookup[i].length && i+1 >= lookup.length) {
+                lookup[i][j] = grid[i][j];
+            } else {
+                lookup[i][j] = grid[i][j] + localmin
+            }
+        }
+    }
+    return lookup[0][0];
 };
 
-function dp(grid, pos, h) {
-    let key = `${pos[0]}:${pos[1]}`
-    let finalpos = [pos.length-1, pos[pos.length-1].length];
-    let currentval = grid[pos[0]][pos[1]];
-    if (pos[0] === finalpos[0] && pos[1] === finalpos[1]) {
-        h[key] = currentval;
-    } else if (pos[0] === finalpos[0]) {
-        h[key] = currentval + dp(grid, [pos[0], pos[1]+1], h)
-    } else if (pos[1] === finalpos[1]) {
-        h[key] = currentval + dp(grid, [pos[0]+1, pos[1]], h)
-    } else {
-        h[key] = currentval + Math.min(dp(grid, [pos[0], pos[1]+1], h), dp(grid, [pos[0]+1, pos[1]], h))
-    }
-    return h[key];
-}
-
-console.log(minPathSum([
-    [1,3,1],
-    [1,5,1],
-    [4,2,1]
-  ]))
+console.log(minPathSum(
+    [
+        [1,3,1],
+        [1,5,1],
+        [4,2,1]
+    ]
+))
