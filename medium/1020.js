@@ -4,10 +4,11 @@ var numEnclaves = function(A) {
     function dfs(i, j) {
         // if (A[i][j] !== 1) {return false}
         if (visited[`${i}:${j}`] !== undefined) {return visited[`${i}:${j}`]}
-        if ((i+1 >= A.length || i-1 <= 0) || (j+1 >= A[i].length || j-1 <= 0)) {
+        if ((i+1 >= A.length || i-1 < 0) || (j+1 >= A[i].length || j-1 < 0)) {
             visited[`${i}:${j}`] = true;
             return true
         }
+        console.log(i, j)
         let flag = false;
         if (A[i+1][j] === 1) {
             flag = flag || dfs(i+1, j)
@@ -33,6 +34,14 @@ var numEnclaves = function(A) {
     return count
 };
 
+console.log(numEnclaves(
+    [
+        [0,0,0,0],
+        [1,0,1,0],
+        [0,1,1,0],
+        [0,0,0,0]
+    ]
+))
 
 
 // [
