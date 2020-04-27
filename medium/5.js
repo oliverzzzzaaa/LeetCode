@@ -10,7 +10,7 @@ var longestPalindrome = function(s) {
             }
             start--;
             end++;
-        }
+        } 
     }
     for (let i = 0; i < s.length; i++) {
         start = i;
