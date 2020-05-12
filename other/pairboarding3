@@ -1,0 +1,63 @@
+Sample input = [
+  [1, 0, 0, 1, 0],
+  [1, 0, 1, 0, 0],
+  [0, 0, 1, 0, 1],
+  [1, 0, 1, 0, 1],
+  [1, 0, 1, 1, 0],
+]
+Sample input = [
+  [1, 0, 0, 1, 0],
+  [1, 0, 1, 0, 0],
+  [0, 1, 1, 1, 0],
+  [1, 0, 1, 0, 1],
+  [1, 0, 0, 1, 0],
+]
+
+Sample output = [1, 2, 2, 2, 5]
+
+Variables: answer array (to push in the lengths)
+DFS problem: Iterate through one time in the outer function
+  If I hit a 0
+  If I hit a 1: 
+    Set the value at current location to be 0
+    Set counter to be 1
+    DFS to remove all adjacent Ones
+      Incrementing a local counter
+local in the stack/call
+
+[
+  [0, 0, 0, 1, 0],
+  [0, 0, 1, 0, 0],
+  [0, 0, 1, 0, 1],
+  [1, 0, 1, 0, 1],
+  [1, 0, 1, 1, 0],
+]
+
+// check map in next pos if statement
+
+function riverCount(matrix) {
+    let rivers = [];                            // []
+    let visited = new Map();                    // {[0, 0]}
+    let dirs = [[1,0],[-1,0],[0,1],[0,-1]]
+
+    function dfs(row, col) {                    // 0,0  // 1,0  
+        visited.set(`${row},${col}`) = true
+        if (matrix[row][col] === 0) {return 0}  // skip     //skip     
+        matrix[row][col] = 0;                   //          //
+        let counter = 1;                        // 2        // 1
+        for (dir in dirs) {
+            if ((row+dir[0] >= 0 && row+dir[0] < matrix.length) && !visited.get(`{${row+dir[0]}, ${col}`)) counter+= dfs(row+dir[0], col)
+        }
+        if (row-1 >= 0 && !visited.get(`${row-1}, ${col}`)) { counter += dfs(row-1, col)}       // row-1 < 0, returns 0     
+        if (row+1 < matrix.length && !visited.get(row+1, col)) { counter += dfs(row+1, col)}    // row+1 = 1 enter    
+        if (col-1 >= 0 && !visited.get(row, col-1)) { counter += dfs(row, col-1)}   //skip
+        if (col+1 < matrix[row].length && !visited.get(row, col+1)) { counter += dfs(row, col+1)}   
+        return counter;    
+    }
+    for (let i = 0; i < matrix.length; i++) {
+        for (let j = 0; j < matrix[i].length; j++) {
+            if (!visited.get(`${i},${j}`) && matrix[i][j] === 1) {rivers.push(dfs(i,j))}
+        }
+    }
+    return rivers;
+}
