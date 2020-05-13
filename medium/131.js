@@ -5,9 +5,6 @@ var partition = function(s) {
     }
 };
 
-function dp(s, curr) {
-    
-}
 
 function isPal(str) {
     if (str.length <1) {return false}
@@ -23,5 +20,8 @@ function isPal(str) {
     }
     return true;
 }
+
+
+// Iterate through 
 
 console.log(('aab'))
