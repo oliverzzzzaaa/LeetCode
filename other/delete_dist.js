@@ -30,6 +30,7 @@ function delete_dist(str1, str2) {
         return visited[str1idx];
     }
     dfs(0, 0, "")
+    console.log(visited)
     return totalcharlen - (visited[0] * 2)
 }
 
