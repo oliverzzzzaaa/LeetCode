@@ -30,8 +30,23 @@ function delete_dist(str1, str2) {
         return visited[str1idx];
     }
     dfs(0, 0, "")
-    console.log(visited)
     return totalcharlen - (visited[0] * 2)
 }
 
 console.log(delete_dist("thought", "sloughs"))
+
+
+function longest(arr) {
+    let longest = 1;
+    let curr = 1;
+    for (let i = 1; i < arr.length; i++) {
+        let num = arr[i];
+        if (num !== arr[i-1]) {
+            curr = 1;
+        } else {
+            curr++;
+            longest = Math.max(curr, longest)
+        }
+    }
+    return longest;
+}

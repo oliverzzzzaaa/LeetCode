@@ -23,3 +23,22 @@ function deletion_dist(str1, str2) {
 }
 
 console.log(deletion_dist("thought", "sloughs"))
+
+
+function bracket_match(bracket_string) {
+    let open = 0;
+    let closed = 0;
+    for (let i = 0; i < bracket_string.length; i++) {
+        let char = bracket_string[i];
+        if (char === "(") {
+            open++;
+        } else if (char === ")") {
+            if (open > 0) {
+                open--
+            } else {
+                closed++;
+            }
+        }
+    }
+    return open + closed;
+}

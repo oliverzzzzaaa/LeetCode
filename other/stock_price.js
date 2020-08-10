@@ -26,3 +26,5 @@ function stock_price_run(arr) {
 
 
 console.log(stock_price_run([3,2,2,1]))
+
+
